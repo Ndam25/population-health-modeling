@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adama NDIR — Population Health Modeling Portfolio</title>
+<style>
+  :root {
+    --blue-50: #E6F1FB; --blue-600: #185FA5; --blue-800: #0C447C; --blue-900: #042C53;
+    --teal-50: #E1F5EE; --teal-600: #0F6E56; --teal-800: #085041;
+    --green-50: #EAF3DE; --green-600: #3B6D11; --green-800: #27500A;
+    --gray-50: #F1EFE8; --gray-600: #5F5E5A; --gray-800: #444441;
+    --amber-50: #FAEEDA; --amber-600: #854F0B;
+    --coral-50: #FAECE7; --coral-600: #993C1D; --coral-800: #712B13;
+    --text: #1a1a1a; --text-muted: #555; --bg: #ffffff; --surface: #F8F7F4;
+    --border: rgba(0,0,0,0.12); --radius: 10px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Georgia', serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+  .hero { background: var(--blue-900); color: white; padding: 4rem 2rem 3rem; text-align: center; }
+  .hero-tag { font-family: 'Courier New', monospace; font-size: 13px; letter-spacing: 2px;
+              text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 1rem; }
+  .hero h1 { font-size: 2.4rem; font-weight: normal; letter-spacing: -0.5px; margin-bottom: 0.5rem; }
+  .hero .subtitle { font-size: 1.05rem; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 2rem; }
+  .badges { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .badge { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+           border-radius: 20px; padding: 4px 14px; font-size: 12px; font-family: sans-serif;
+           color: rgba(255,255,255,0.85); }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
+  .section { padding: 3rem 0; }
+  .section-title { font-size: 1.4rem; font-weight: normal; color: var(--blue-800);
+                   border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; margin-bottom: 2rem; }
+  .pitch { background: var(--blue-50); border-left: 4px solid var(--blue-600);
+           padding: 1.5rem 2rem; border-radius: 0 var(--radius) var(--radius) 0;
+           font-size: 1.05rem; color: var(--blue-800); margin-bottom: 2rem; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius);
+          padding: 1.5rem; }
+  .card-tag { font-family: 'Courier New', monospace; font-size: 11px; letter-spacing: 1.5px;
+              text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; }
+  .card h3 { font-size: 1.05rem; font-weight: normal; margin-bottom: 0.75rem; color: var(--text); }
+  .card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.55; }
+  .script-block { background: #1e1e2e; color: #cdd6f4; font-family: 'Courier New', monospace;
+                  font-size: 13px; border-radius: var(--radius); padding: 1.25rem 1.5rem;
+                  margin: 1rem 0; overflow-x: auto; }
+  .script-block .comment { color: #6c7086; }
+  .script-block .keyword { color: #89b4fa; }
+  .script-block .string { color: #a6e3a1; }
+  .script-block .fn { color: #f38ba8; }
+  .method-row { display: flex; gap: 1.5rem; align-items: flex-start; padding: 1rem 0;
+                border-bottom: 1px solid var(--border); }
+  .method-row:last-child { border-bottom: none; }
+  .method-icon { width: 40px; height: 40px; border-radius: 8px; display: flex;
+                 align-items: center; justify-content: center; font-family: monospace;
+                 font-size: 13px; font-weight: bold; flex-shrink: 0; }
+  .icon-r { background: var(--blue-50); color: var(--blue-800); }
+  .icon-py { background: var(--teal-50); color: var(--teal-800); }
+  .method-info h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem; font-family: sans-serif; }
+  .method-info p { font-size: 0.875rem; color: var(--text-muted); }
+  .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 2rem 0; }
+  .stat { text-align: center; padding: 1.25rem; background: var(--surface);
+          border-radius: var(--radius); }
+  .stat-num { font-size: 2rem; font-weight: 600; color: var(--blue-800); display: block; }
+  .stat-label { font-size: 0.8rem; color: var(--text-muted); font-family: sans-serif; margin-top: 4px; }
+  .repro-table { width: 100%; border-collapse: collapse; font-family: sans-serif; font-size: 14px; }
+  .repro-table th { text-align: left; padding: 8px 12px; background: var(--surface);
+                    font-weight: 600; color: var(--text); border-bottom: 2px solid var(--border); }
+  .repro-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  .repro-table tr:last-child td { border-bottom: none; }
+  .check { color: #27ae60; font-weight: bold; }
+  .footer { background: var(--blue-900); color: rgba(255,255,255,0.6); text-align: center;
+            padding: 2rem; font-family: sans-serif; font-size: 13px; }
+  .footer a { color: rgba(255,255,255,0.8); }
+  @media (max-width: 640px) {
+    .grid-2, .grid-3, .stat-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tag">Population Health Modeling · GitHub Portfolio</div>
+  <h1>Adama NDIR, MD, MSc</h1>
+  <p class="subtitle">Physician-Epidemiologist &amp; Applied Data Scientist — 24 years at the nutrition–disease nexus in sub-Saharan Africa</p>
+  <div class="badges">
+    <span class="badge">R · Python · SAS</span>
+    <span class="badge">DHS/MICS · IeDEA · DHIS-2</span>
+    <span class="badge">HIV · TB · Malaria · Nutrition</span>
+    <span class="badge">MIT Applied Data Science 2024</span>
+    <span class="badge">US CDC Senior Scientist (Title 42)</span>
+    <span class="badge">The Lancet · PLOS Medicine</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section">
+    <div class="pitch">
+      This repository provides fully reproducible, documented analytical pipelines for population health modeling — from raw DHS/MICS data harmonization through disease burden estimation, compartmental modeling, and Bayesian forecasting. All code runs on synthetic data with fixed seeds; no real participant data is included.
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat"><span class="stat-num">10</span><div class="stat-label">ECOWAS countries simulated</div></div>
+      <div class="stat"><span class="stat-num">60K</span><div class="stat-label">synthetic survey records</div></div>
+      <div class="stat"><span class="stat-num">5</span><div class="stat-label">end-to-end pipelines</div></div>
+      <div class="stat"><span class="stat-num">100%</span><div class="stat-label">reproducible from seed</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Analytical Pipelines</h2>
+    <div class="grid-2">
+
+      <div class="card">
+        <div class="card-tag">R · Pipeline 1</div>
+        <h3>Multi-Country DHS Harmonization</h3>
+        <p>Automated QA/QC (range checks, outlier flagging, missingness audit), complex survey design specification, population-weighted estimates via the <code>survey</code> package. Full audit trail logged.</p>
+        <div class="script-block">
+<span class="comment"># Complex survey design</span>
+svy_design <span class="keyword">&lt;-</span> <span class="fn">svydesign</span>(
+  ids = ~cluster_id,
+  strata = ~stratum,
+  weights = ~weight,
+  data = dhs_clean
+)
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-tag">R · Pipeline 2</div>
+        <h3>PAF Burden Estimation (CRA)</h3>
+        <p>Population-Attributable Fractions of malnutrition on HIV/TB/diarrheal disease. GBD-adapted Comparative Risk Assessment framework. Bootstrap CIs (n=500) + Probabilistic Sensitivity Analysis (PSA, n=1000).</p>
+        <div class="script-block">
+<span class="comment"># Levin's PAF formula</span>
+levin_paf <span class="keyword">&lt;-</span> <span class="fn">function</span>(or, pe) {
+  (pe * (or - 1)) /
+  (pe * (or - 1) + 1)
+}
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-tag">R · Pipeline 3</div>
+        <h3>SEIR-Nutrition Compartmental Model</h3>
+        <p>SEIR extended with nutritional strata. Nutritional status modulates β (transmission) and μ (case-fatality). Three policy scenarios projected over 5 years. Solved via <code>deSolve::ode()</code> LSODA.</p>
+        <div class="script-block">
+<span class="comment"># Stunted stratum: 45% higher β</span>
+beta_stunt <span class="keyword">=</span> beta_base * 1.45
+mu_stunt   <span class="keyword">=</span> 0.018
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-tag">R · Pipeline 4</div>
+        <h3>ARIMA + Bayesian Forecasting</h3>
+        <p>5-year disease burden forecasting: auto.arima, StructTS state-space, and Bayesian Structural Time Series (<code>bsts</code>) compared. Monte Carlo uncertainty envelope (n=1000 trajectories). Explicit PI communication.</p>
+        <div class="script-block">
+<span class="comment"># bsts: local linear trend</span>
+ss <span class="keyword">&lt;-</span> <span class="fn">AddLocalLinearTrend</span>(
+  list(), y = hiv_series)
+fit <span class="keyword">&lt;-</span> <span class="fn">bsts</span>(hiv_series,
+  state.specification = ss,
+  niter = 2000, seed = 42)
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-tag">Python · Pipeline 5</div>
+        <h3>MICE Missing Data Pipeline</h3>
+        <p>Multiple Imputation by Chained Equations (m=20 datasets). MAR diagnostics, BayesianRidge estimator per variable, Rubin's Rules pooling with between-imputation variance quantification. Bias vs. complete-case analysis reported.</p>
+        <div class="script-block">
+<span class="comment"># Rubin's Rules pooling</span>
+T = W + (1 + 1/m) * B
+<span class="comment"># W = within, B = between</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-tag">Python · Pipeline 6</div>
+        <h3>Spatial Small-Area Estimation</h3>
+        <p>Model-based geostatistics for subnational disease burden mapping. Calibrated against synthetic DHS cluster coordinates. Produces uncertainty-quantified subnational PAF maps for policy targeting.</p>
+        <div class="script-block">
+<span class="comment"># SAE: model-based prediction</span>
+<span class="comment"># at unsampled locations</span>
+<span class="fn">KrigingPredictor</span>(
+  kernel=<span class="string">'Matern'</span>, nu=1.5)
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Reproducibility Guarantee</h2>
+    <table class="repro-table">
+      <thead>
+        <tr><th>Component</th><th>Approach</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Synthetic data generation</td><td>Seeded RNG (seed=42), documented parameters calibrated to DHS</td><td class="check">✓ Reproducible</td></tr>
+        <tr><td>R environment</td><td><code>renv.lock</code> with pinned package versions; restore via <code>renv::restore()</code></td><td class="check">✓ Locked</td></tr>
+        <tr><td>Python environment</td><td><code>requirements.txt</code> with minimum version constraints</td><td class="check">✓ Specified</td></tr>
+        <tr><td>Random seeds</td><td>Fixed at every stochastic step: bootstrap, MCMC, Monte Carlo, train/test splits</td><td class="check">✓ Fixed</td></tr>
+        <tr><td>Session info</td><td>Auto-logged at end of every R script (<code>sessionInfo()</code>)</td><td class="check">✓ Logged</td></tr>
+        <tr><td>QA/QC audit trail</td><td>Machine-readable <code>qaqc_report.txt</code> generated at harmonization stage</td><td class="check">✓ Automated</td></tr>
+      </tbody>
+    </table>
+
+    <div class="script-block" style="margin-top: 1.5rem;">
+<span class="comment"># Full pipeline — run from root</span>
+Rscript data/synthetic/generate_synthetic_dhs.R
+Rscript R/01_data_harmonization.R
+Rscript R/02_burden_estimation.R
+Rscript R/03_seir_nutrition_model.R
+Rscript R/04_forecasting_arima.R
+python Python/01_mice_imputation.py
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Methods Reference</h2>
+
+    <div class="method-row">
+      <div class="method-icon icon-r">R</div>
+      <div class="method-info">
+        <h4>Complex survey estimation</h4>
+        <p><code>survey</code> package — stratified cluster design, probability weights, design-corrected SEs. Applied to DHS/MICS population inference across 10+ countries.</p>
+      </div>
+    </div>
+
+    <div class="method-row">
+      <div class="method-icon icon-r">R</div>
+      <div class="method-info">
+        <h4>Compartmental modeling (ODE)</h4>
+        <p><code>deSolve::ode()</code> LSODA solver — SEIR-Nutrition system with 10 differential equations. Calibrated against synthetic IeDEA cohort data (17,000+ patient equivalent).</p>
+      </div>
+    </div>
+
+    <div class="method-row">
+      <div class="method-icon icon-r">R</div>
+      <div class="method-info">
+        <h4>Bayesian structural time-series</h4>
+        <p><code>bsts</code> — local linear trend + MCMC (2000 iterations). Posterior predictive intervals. Compared vs. ARIMA and StructTS for ensemble averaging.</p>
+      </div>
+    </div>
+
+    <div class="method-row">
+      <div class="method-icon icon-py">Py</div>
+      <div class="method-info">
+        <h4>Multiple Imputation by Chained Equations (MICE)</h4>
+        <p><code>sklearn.impute.IterativeImputer</code> + BayesianRidge. m=20 datasets. Rubin's Rules pooling. Bias quantification vs. complete-case analysis. MAR diagnostics via missingness correlation matrix.</p>
+      </div>
+    </div>
+
+    <div class="method-row">
+      <div class="method-icon icon-py">Py</div>
+      <div class="method-info">
+        <h4>Probabilistic Sensitivity Analysis</h4>
+        <p>Monte Carlo simulation (n=1000) propagating parameter uncertainty through PAF and forecast models. Tornado diagrams for one-way sensitivity. All uncertainty communicated as explicit distributions.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Background</h2>
+    <div class="grid-2">
+      <div>
+        <p style="margin-bottom: 1rem; font-size: 0.95rem;"><strong>Adama NDIR, MD, MSc</strong> is a physician-epidemiologist and applied data scientist with 24 years of experience — 15 years as a US CDC Senior Scientist (Title 42, exceptional ability recruitment) running multi-country disease surveillance and quantitative programs across sub-Saharan Africa and beyond.</p>
+        <p style="font-size: 0.95rem;">Core expertise spans: IeDEA West Africa cohort (17,000+ HIV patients, 6 countries; <em>The Lancet</em>), Mali 2012 National DHS HIV component, CDC epidemic forecasting (HIV, COVID-19, Ebola, Mpox), National Nutrition Policies for Burkina Faso &amp; Mali, and NutriSnap AI nutrition platform (14,500 users).</p>
+      </div>
+      <div class="grid-2" style="gap: 0.75rem;">
+        <div class="card" style="padding: 1rem;">
+          <div class="card-tag">Primary tools</div>
+          <p style="font-size: 0.9rem;">R · Python · SAS · Stata</p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <div class="card-tag">Data sources</div>
+          <p style="font-size: 0.9rem;">DHS · MICS · IeDEA · DHIS-2 · FEWS-NET</p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <div class="card-tag">Focus areas</div>
+          <p style="font-size: 0.9rem;">HIV · TB · Malaria · Nutrition · MNCH</p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <div class="card-tag">Geographies</div>
+          <p style="font-size: 0.9rem;">20+ countries · ECOWAS · SADC · Central Africa</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Adama NDIR, MD, MSc &nbsp;·&nbsp; ndir.adama@gmail.com &nbsp;·&nbsp;
+  <a href="https://linkedin.com/in/adama-ndir">LinkedIn</a> &nbsp;·&nbsp;
+  All code MIT License · Synthetic data only · No real participant data
+</div>
+
+</body>
+</html>
