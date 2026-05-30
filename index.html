@@ -69,6 +69,30 @@
   .repro-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
   .repro-table tr:last-child td { border-bottom: none; }
   .check { color: #27ae60; font-weight: bold; }
+  /* Featured Repos */
+  .repo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .repo-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem;
+               display: flex; flex-direction: column; gap: 0.75rem; transition: box-shadow 0.2s; }
+  .repo-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+  .repo-card.featured { border-top: 3px solid var(--blue-600); }
+  .repo-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+  .repo-title { font-size: 1rem; font-weight: 600; font-family: sans-serif; color: var(--blue-800); }
+  .repo-title a { color: inherit; text-decoration: none; }
+  .repo-title a:hover { text-decoration: underline; }
+  .repo-star { font-family: sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1px;
+               text-transform: uppercase; color: white; padding: 3px 10px; border-radius: 4px;
+               white-space: nowrap; flex-shrink: 0; }
+  .star-top { background: var(--blue-600); }
+  .star-good { background: var(--teal-600); }
+  .repo-desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.55; }
+  .repo-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .repo-tag { background: var(--surface); border: 1px solid var(--border); border-radius: 4px;
+              padding: 2px 8px; font-size: 11px; font-family: 'Courier New', monospace;
+              color: var(--text-muted); }
+  .repo-link { font-family: sans-serif; font-size: 12px; color: var(--blue-600);
+               text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+  .repo-link:hover { text-decoration: underline; }
+  .repo-wide { grid-column: 1 / -1; }
   .footer { background: var(--blue-900); color: rgba(255,255,255,0.6); text-align: center;
             padding: 2rem; font-family: sans-serif; font-size: 13px; }
   .footer a { color: rgba(255,255,255,0.8); }
@@ -339,6 +363,136 @@ python Python/01_mice_imputation.py
     </div>
   </div>
 
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION: FEATURED REPOSITORIES                              -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="container">
+  <div class="section">
+    <h2 class="section-title">Featured Repositories</h2>
+    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.5rem; font-family:sans-serif;">
+      5 repositories selected for their direct relevance to population health modeling, reproducible analytics, and decision support for LMIC public health programs.
+    </p>
+
+    <div class="repo-grid">
+
+      <!-- #1 — population-health-modeling -->
+      <div class="repo-card featured repo-wide">
+        <div class="repo-header">
+          <div class="repo-title">
+            <a href="https://github.com/Ndam25/population-health-modeling" target="_blank">population-health-modeling</a>
+          </div>
+          <span class="repo-star star-top">⭐ Core Portfolio</span>
+        </div>
+        <div class="repo-desc">
+          End-to-end reproducible population health modeling portfolio — DHS/MICS harmonization, PAF/CRA burden estimation, SEIR-Nutrition compartmental model, ARIMA + Bayesian forecasting, MICE imputation, and spatial small-area estimation. All pipelines run on synthetic LMIC data with fixed seeds.
+        </div>
+        <div class="repo-tags">
+          <span class="repo-tag">R · Python</span>
+          <span class="repo-tag">SEIR · ODE</span>
+          <span class="repo-tag">DHS · MICS · IeDEA</span>
+          <span class="repo-tag">PAF · CRA · GBD</span>
+          <span class="repo-tag">ARIMA · bsts · Bayesian</span>
+          <span class="repo-tag">MICE · SAE</span>
+          <span class="repo-tag">100% Reproducible</span>
+        </div>
+        <a class="repo-link" href="https://github.com/Ndam25/population-health-modeling" target="_blank">
+          View on GitHub →
+        </a>
+      </div>
+
+      <!-- #2 — covid19-forecasting-system -->
+      <div class="repo-card featured">
+        <div class="repo-header">
+          <div class="repo-title">
+            <a href="https://github.com/Ndam25/covid19-forecasting-system" target="_blank">covid19-forecasting-system</a>
+          </div>
+          <span class="repo-star star-top">⭐ IDM-Relevant</span>
+        </div>
+        <div class="repo-desc">
+          Ensemble time-series forecasting (ARIMA + Prophet + LSTM) across 6 countries. 85% 7-day accuracy. Real-time Streamlit dashboard. Directly analogous to CDC operational forecasting workflows deployed during COVID-19 and Mpox responses.
+        </div>
+        <div class="repo-tags">
+          <span class="repo-tag">ARIMA</span>
+          <span class="repo-tag">Prophet</span>
+          <span class="repo-tag">LSTM</span>
+          <span class="repo-tag">Streamlit</span>
+          <span class="repo-tag">6-country</span>
+          <span class="repo-tag">Ensemble</span>
+        </div>
+        <a class="repo-link" href="https://github.com/Ndam25/covid19-forecasting-system" target="_blank">View on GitHub →</a>
+      </div>
+
+      <!-- #3 — outbreak-detection-system -->
+      <div class="repo-card featured">
+        <div class="repo-header">
+          <div class="repo-title">
+            <a href="https://github.com/Ndam25/outbreak-detection-system" target="_blank">outbreak-detection-system</a>
+          </div>
+          <span class="repo-star star-top">⭐ IDM-Relevant</span>
+        </div>
+        <div class="repo-desc">
+          WHO/ECDC-standard Farrington algorithm + CUSUM + Bayesian Poisson-Gamma ensemble for epidemic signal detection. 2-of-3 voting logic reduces false positives. Applicable to DHIS-2 surveillance pipelines across LMIC national health systems.
+        </div>
+        <div class="repo-tags">
+          <span class="repo-tag">Farrington</span>
+          <span class="repo-tag">CUSUM</span>
+          <span class="repo-tag">Bayesian</span>
+          <span class="repo-tag">WHO/ECDC standard</span>
+          <span class="repo-tag">DHIS-2 compatible</span>
+        </div>
+        <a class="repo-link" href="https://github.com/Ndam25/outbreak-detection-system" target="_blank">View on GitHub →</a>
+      </div>
+
+      <!-- #4 — nutrisnap-ai-platform -->
+      <div class="repo-card featured">
+        <div class="repo-header">
+          <div class="repo-title">
+            <a href="https://github.com/Ndam25/nutrisnap-ai-platform" target="_blank">nutrisnap-ai-platform</a>
+          </div>
+          <span class="repo-star star-top">⭐ Real Impact</span>
+        </div>
+        <div class="repo-desc">
+          ResNet50 computer vision for African food composition classification. 87.3% Top-1 accuracy. 14,500 active users. 82% retention. AWS Lambda CI/CD deployment. Addresses the African food composition data gap — directly relevant to nutrition surveillance in LMICs.
+        </div>
+        <div class="repo-tags">
+          <span class="repo-tag">ResNet50</span>
+          <span class="repo-tag">TensorFlow</span>
+          <span class="repo-tag">AWS Lambda</span>
+          <span class="repo-tag">14,500 users</span>
+          <span class="repo-tag">African food DB</span>
+        </div>
+        <a class="repo-link" href="https://github.com/Ndam25/nutrisnap-ai-platform" target="_blank">View on GitHub →</a>
+      </div>
+
+      <!-- #5 — outbreak-anomaly-detection -->
+      <div class="repo-card featured">
+        <div class="repo-header">
+          <div class="repo-title">
+            <a href="https://github.com/Ndam25/outbreak-anomaly-detection" target="_blank">outbreak-anomaly-detection</a>
+          </div>
+          <span class="repo-star star-top">⭐ Operational Scale</span>
+        </div>
+        <div class="repo-desc">
+          Unsupervised anomaly detection (Isolation Forest + Autoencoder) across 8 surveillance signals and 36M+ observations. Early detection 5–7 days before clinical confirmation — operational scale comparable to CDC surveillance systems deployed in West Africa.
+        </div>
+        <div class="repo-tags">
+          <span class="repo-tag">Isolation Forest</span>
+          <span class="repo-tag">Autoencoder</span>
+          <span class="repo-tag">36M+ observations</span>
+          <span class="repo-tag">Early warning</span>
+          <span class="repo-tag">scikit-learn</span>
+        </div>
+        <a class="repo-link" href="https://github.com/Ndam25/outbreak-anomaly-detection" target="_blank">View on GitHub →</a>
+      </div>
+
+    </div>
+
+    <div style="margin-top:1.25rem; padding:1rem 1.25rem; background:var(--surface); border-radius:var(--radius); font-size:0.875rem; color:var(--text-muted); font-family:sans-serif;">
+      Full repository list: <a href="https://github.com/Ndam25?tab=repositories" target="_blank" style="color:var(--blue-600);">github.com/Ndam25 → 18 public repositories</a> &nbsp;·&nbsp; Languages: R · Python · SAS · Stata · SQL
+    </div>
+  </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════ -->
