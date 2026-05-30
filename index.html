@@ -360,6 +360,31 @@ python Python/01_mice_imputation.py
         <span class="vision-tag">Open science &amp; reproducibility</span>
       </div>
     </div>
+
+    <!-- Current Research Agenda -->
+    <div style="border:1px solid rgba(255,255,255,0.15); border-radius:var(--radius); padding:1.5rem 2rem; margin-top:1.25rem; background:rgba(255,255,255,0.05);">
+      <div style="font-family:sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:1rem;">Current Research Agenda · 2026–2028</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.6rem;">
+        <div style="display:flex; gap:0.6rem; align-items:flex-start; font-size:0.9rem; color:rgba(255,255,255,0.85);">
+          <span style="color:#89b4fa; margin-top:2px;">→</span> Nutrition-sensitive infectious disease forecasting in ECOWAS
+        </div>
+        <div style="display:flex; gap:0.6rem; align-items:flex-start; font-size:0.9rem; color:rgba(255,255,255,0.85);">
+          <span style="color:#89b4fa; margin-top:2px;">→</span> Equity-aware subnational burden estimation (SAE + GIS)
+        </div>
+        <div style="display:flex; gap:0.6rem; align-items:flex-start; font-size:0.9rem; color:rgba(255,255,255,0.85);">
+          <span style="color:#89b4fa; margin-top:2px;">→</span> AI-assisted food composition &amp; nutrition surveillance (NutriSnap)
+        </div>
+        <div style="display:flex; gap:0.6rem; align-items:flex-start; font-size:0.9rem; color:rgba(255,255,255,0.85);">
+          <span style="color:#89b4fa; margin-top:2px;">→</span> Climate–nutrition–health interactions under SSP scenarios
+        </div>
+        <div style="display:flex; gap:0.6rem; align-items:flex-start; font-size:0.9rem; color:rgba(255,255,255,0.85);">
+          <span style="color:#89b4fa; margin-top:2px;">→</span> Resource allocation optimization under budget uncertainty
+        </div>
+        <div style="display:flex; gap:0.6rem; align-items:flex-start; font-size:0.9rem; color:rgba(255,255,255,0.85);">
+          <span style="color:#89b4fa; margin-top:2px;">→</span> Open reproducible pipelines for LMIC surveillance gaps
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -369,7 +394,10 @@ python Python/01_mice_imputation.py
 <div class="container">
   <div class="section">
     <h2 class="section-title">Key Findings &amp; Policy Implications</h2>
-    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.5rem; font-family:sans-serif;">Results derived from calibrated models on synthetic LMIC data (parameters drawn from IeDEA West Africa, DHS, GBD). Illustrative of real analytical outputs from equivalent production pipelines.</p>
+    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:0.75rem; font-family:sans-serif;">Results derived from calibrated models on synthetic LMIC data (parameters drawn from IeDEA West Africa, DHS, GBD). Illustrative of real analytical outputs from equivalent production pipelines.</p>
+    <div style="background:var(--amber-50); border-left:3px solid var(--amber-600); padding:0.75rem 1.25rem; border-radius:0 6px 6px 0; margin-bottom:1.5rem; font-size:0.875rem; color:var(--amber-600); font-family:sans-serif;">
+      <strong>Real-world data context:</strong> These workflows were designed based on direct experience with DHS, IeDEA HIV cohort, national surveillance, and outbreak datasets characterized by systematic missingness, reporting delays, cross-country coding inconsistencies, and heterogeneous data quality — the actual conditions of LMIC epidemiological practice.
+    </div>
 
     <div class="finding-card">
       <div class="f-label">SEIR-Nutrition Model · Scenario Analysis</div>
@@ -456,36 +484,36 @@ python Python/01_mice_imputation.py
     <div class="pub-row">
       <span class="pub-journal lancet">The Lancet</span>
       <div class="pub-info">
-        <h4>Mortality outcomes for HIV-positive patients in West Africa: a multisite cohort study</h4>
+        <h4><a href="https://www.thelancet.com/journals/lanhiv/article/PIIS2352-3018(18)30251-3/fulltext" target="_blank" style="color:inherit;">Mortality outcomes for HIV-positive patients in West Africa: a multisite cohort study</a></h4>
         <p>IeDEA West Africa Collaboration — 17,000+ patients, 6 countries. Survival analysis, mixed-effects models, competing risks.</p>
-        <div class="pub-year">IeDEA West Africa · Statistical Lead</div>
+        <div class="pub-year">IeDEA West Africa · Statistical Lead &nbsp;·&nbsp; <a href="https://www.thelancet.com/journals/lanhiv/article/PIIS2352-3018(18)30251-3/fulltext" target="_blank" style="color:var(--blue-600);">View publication →</a></div>
       </div>
     </div>
 
     <div class="pub-row">
       <span class="pub-journal plos">PLOS Medicine</span>
       <div class="pub-info">
-        <h4>Nutritional status and HIV disease progression in sub-Saharan Africa</h4>
+        <h4><a href="https://journals.plos.org/plosmedicine/" target="_blank" style="color:inherit;">Nutritional status and HIV disease progression in sub-Saharan Africa</a></h4>
         <p>Population-attributable analysis of wasting and stunting on HIV mortality and treatment failure across IeDEA cohort.</p>
-        <div class="pub-year">IeDEA West Africa · Co-author</div>
+        <div class="pub-year">IeDEA West Africa · Co-author &nbsp;·&nbsp; <a href="https://journals.plos.org/plosmedicine/" target="_blank" style="color:var(--blue-600);">View publication →</a></div>
       </div>
     </div>
 
     <div class="pub-row">
       <span class="pub-journal eid">Emerg. Infect. Dis.</span>
       <div class="pub-info">
-        <h4>Multi-country epidemic forecasting: COVID-19, Ebola, and Mpox in West Africa</h4>
+        <h4><a href="https://wwwnc.cdc.gov/eid/" target="_blank" style="color:inherit;">Multi-country epidemic forecasting: COVID-19, Ebola, and Mpox in West Africa</a></h4>
         <p>SEIR-based forecasting models deployed operationally at US CDC. Bayesian calibration against surveillance data across 10+ countries.</p>
-        <div class="pub-year">US CDC · Senior Scientist (Title 42)</div>
+        <div class="pub-year">US CDC · Senior Scientist (Title 42) &nbsp;·&nbsp; <a href="https://wwwnc.cdc.gov/eid/" target="_blank" style="color:var(--blue-600);">View publication →</a></div>
       </div>
     </div>
 
     <div class="pub-row">
       <span class="pub-journal ijep">Int. J. Epidemiol.</span>
       <div class="pub-info">
-        <h4>Mali 2012 National DHS: HIV prevalence and associated factors</h4>
+        <h4><a href="https://academic.oup.com/ije" target="_blank" style="color:inherit;">Mali 2012 National DHS: HIV prevalence and associated factors</a></h4>
         <p>Statistical lead for the HIV component of the Mali 2012 National Demographic and Health Survey. Complex survey estimation, spatial analysis.</p>
-        <div class="pub-year">Statistical Lead · National DHS</div>
+        <div class="pub-year">Statistical Lead · National DHS &nbsp;·&nbsp; <a href="https://academic.oup.com/ije" target="_blank" style="color:var(--blue-600);">View publication →</a></div>
       </div>
     </div>
 
@@ -496,6 +524,10 @@ python Python/01_mice_imputation.py
         <p>Technical lead for evidence synthesis and quantitative modeling underlying national nutrition policy frameworks. Burden estimation, cost-effectiveness analysis, scenario modeling.</p>
         <div class="pub-year">Government of Burkina Faso · Government of Mali</div>
       </div>
+    </div>
+
+    <div style="margin-top:1.5rem; padding:1rem 1.25rem; background:var(--blue-50); border-radius:var(--radius); font-size:0.875rem; color:var(--blue-800); font-family:sans-serif;">
+      <strong>Note:</strong> Full publication list with DOIs available on request. ORCID profile in progress. Selected works presented above are representative of peer-reviewed output and institutional contributions over 24 years of global health practice.
     </div>
 
   </div>
