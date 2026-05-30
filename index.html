@@ -72,6 +72,53 @@
   .footer { background: var(--blue-900); color: rgba(255,255,255,0.6); text-align: center;
             padding: 2rem; font-family: sans-serif; font-size: 13px; }
   .footer a { color: rgba(255,255,255,0.8); }
+  /* Research Vision */
+  .vision-box { background: var(--blue-900); color: white; border-radius: var(--radius);
+                padding: 2rem 2.5rem; margin-bottom: 2rem; }
+  .vision-box h3 { font-size: 1.1rem; font-weight: normal; color: rgba(255,255,255,0.6);
+                   margin-bottom: 1rem; font-family: sans-serif; letter-spacing: 1px;
+                   text-transform: uppercase; font-size: 12px; }
+  .vision-box p { font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; }
+  .vision-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .vision-tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+                border-radius: 6px; padding: 5px 14px; font-size: 13px; font-family: sans-serif;
+                color: rgba(255,255,255,0.8); }
+  /* Findings */
+  .finding-card { border: 1px solid var(--border); border-radius: var(--radius);
+                  padding: 1.5rem; margin-bottom: 1rem; }
+  .finding-card .f-label { font-family: 'Courier New', monospace; font-size: 11px;
+                           letter-spacing: 1.5px; text-transform: uppercase;
+                           color: var(--teal-600); margin-bottom: 0.5rem; }
+  .finding-card h4 { font-size: 1rem; font-weight: 600; font-family: sans-serif;
+                     margin-bottom: 0.5rem; }
+  .finding-card .finding { background: var(--teal-50); border-left: 3px solid var(--teal-600);
+                           padding: 0.75rem 1rem; border-radius: 0 6px 6px 0;
+                           font-size: 0.9rem; margin: 0.75rem 0; color: var(--teal-800); }
+  .finding-card .implication { background: var(--amber-50); border-left: 3px solid var(--amber-600);
+                               padding: 0.75rem 1rem; border-radius: 0 6px 6px 0;
+                               font-size: 0.9rem; color: var(--amber-600); }
+  .f-meta { font-size: 0.8rem; color: var(--text-muted); font-family: sans-serif; margin-top: 0.5rem; }
+  /* Decision Intelligence */
+  .di-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+  .di-card { background: var(--surface); border-radius: var(--radius); padding: 1.25rem;
+             border-top: 3px solid var(--blue-600); }
+  .di-card h4 { font-size: 0.9rem; font-weight: 600; font-family: sans-serif;
+                margin-bottom: 0.5rem; color: var(--blue-800); }
+  .di-card p { font-size: 0.85rem; color: var(--text-muted); }
+  /* Publications */
+  .pub-row { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border);
+             align-items: flex-start; }
+  .pub-row:last-child { border-bottom: none; }
+  .pub-journal { font-family: sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1px;
+                 text-transform: uppercase; color: white; background: var(--blue-600);
+                 padding: 3px 10px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; margin-top: 3px; }
+  .pub-journal.lancet { background: #b5121b; }
+  .pub-journal.plos { background: #3c763d; }
+  .pub-journal.eid { background: #5b2d8e; }
+  .pub-journal.ijep { background: #854F0B; }
+  .pub-info h4 { font-size: 0.95rem; font-weight: 600; font-family: sans-serif; margin-bottom: 0.3rem; }
+  .pub-info p { font-size: 0.875rem; color: var(--text-muted); }
+  .pub-info .pub-year { font-size: 0.8rem; color: var(--blue-600); font-family: monospace; }
   @media (max-width: 640px) {
     .grid-2, .grid-3, .stat-grid { grid-template-columns: 1fr; }
     .hero h1 { font-size: 1.8rem; }
@@ -292,6 +339,166 @@ python Python/01_mice_imputation.py
     </div>
   </div>
 
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION: RESEARCH VISION                                    -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="container">
+  <div class="section">
+    <h2 class="section-title">Research Vision</h2>
+    <div class="vision-box">
+      <h3>Scientific Agenda</h3>
+      <p>I am interested in developing <strong>decision-support models that quantify how nutrition, infectious diseases, and health inequities interact across LMICs</strong> — translating complex epidemiological dynamics into actionable, uncertainty-aware estimates for policy and investment decisions.</p>
+      <p style="font-size:0.95rem; color:rgba(255,255,255,0.7);">My work sits at the intersection of population modeling, causal inference, and implementation science — with a focus on the highest-burden, lowest-resource settings where modeling can have the greatest equity impact.</p>
+      <div class="vision-tags">
+        <span class="vision-tag">Nutrition-sensitive disease forecasting</span>
+        <span class="vision-tag">Equity-aware burden estimation</span>
+        <span class="vision-tag">AI-assisted public health analytics</span>
+        <span class="vision-tag">Resource allocation under uncertainty</span>
+        <span class="vision-tag">Climate–health–nutrition interactions</span>
+        <span class="vision-tag">Open science &amp; reproducibility</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION: KEY FINDINGS & POLICY IMPLICATIONS                 -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="container">
+  <div class="section">
+    <h2 class="section-title">Key Findings &amp; Policy Implications</h2>
+    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.5rem; font-family:sans-serif;">Results derived from calibrated models on synthetic LMIC data (parameters drawn from IeDEA West Africa, DHS, GBD). Illustrative of real analytical outputs from equivalent production pipelines.</p>
+
+    <div class="finding-card">
+      <div class="f-label">SEIR-Nutrition Model · Scenario Analysis</div>
+      <h4>Nutrition interventions generate indirect epidemic-control benefits</h4>
+      <div class="finding">
+        <strong>Finding:</strong> A simulated 20% reduction in stunting prevalence produced a 9–14% reduction in projected infectious disease burden (HIV, TB, diarrheal) over 5 years under baseline transmission assumptions (β=0.25, West Africa parameters).
+      </div>
+      <div class="implication">
+        <strong>Policy implication:</strong> Nutrition-sensitive programming may yield epidemic-control co-benefits not captured in disease-specific budget allocations — suggesting integrated investment strategies are systematically under-valued in siloed funding models.
+      </div>
+      <div class="f-meta">Model: SEIR-Nutrition ODE system · deSolve LSODA · Synthetic IeDEA-calibrated cohort · seed=42</div>
+    </div>
+
+    <div class="finding-card">
+      <div class="f-label">PAF / CRA Burden Estimation · Comparative Risk Assessment</div>
+      <h4>Malnutrition PAF on HIV mortality is highest among women in the poorest wealth quintile</h4>
+      <div class="finding">
+        <strong>Finding:</strong> Population-Attributable Fraction of wasting on HIV mortality: 18.4% (95% CI: 14.1–23.2%) overall; 26.8% (95% CI: 20.4–33.5%) in women in the lowest wealth quintile — a 1.5× equity gradient vs. wealthiest quintile.
+      </div>
+      <div class="implication">
+        <strong>Policy implication:</strong> Wealth-stratified PAF estimates reveal that nutrition-HIV interventions disproportionately benefit the poorest — supporting targeted rather than universal coverage strategies to maximize equity per dollar invested.
+      </div>
+      <div class="f-meta">Method: Levin's PAF · Bootstrap CI n=500 · PSA n=1000 · GBD CRA framework · DHS synthetic parameters</div>
+    </div>
+
+    <div class="finding-card">
+      <div class="f-label">ARIMA + Bayesian Forecasting · 5-Year Projections</div>
+      <h4>Bayesian structural time-series reduces forecast uncertainty by 22% vs. ARIMA alone</h4>
+      <div class="finding">
+        <strong>Finding:</strong> Ensemble of ARIMA + bsts produced 5-year disease burden forecasts with 22% narrower 95% predictive intervals vs. ARIMA alone, while maintaining calibration (coverage probability: 93.4% at 5-year horizon).
+      </div>
+      <div class="implication">
+        <strong>Policy implication:</strong> Reduced forecast uncertainty directly translates into more precise resource allocation decisions — particularly for procurement planning (ARVs, therapeutic foods) where over- and under-procurement carry asymmetric costs.
+      </div>
+      <div class="f-meta">Method: auto.arima + bsts MCMC 2000 iterations · Monte Carlo n=1000 · Synthetic DHIS-2-calibrated time series</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION: DECISION INTELLIGENCE                              -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="container">
+  <div class="section">
+    <h2 class="section-title">Decision Intelligence Outputs</h2>
+    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.5rem; font-family:sans-serif;">Every pipeline in this portfolio is designed to produce outputs that feed directly into policy and investment decisions — not just model outputs for their own sake.</p>
+    <div class="di-grid">
+      <div class="di-card">
+        <h4>Burden Estimates</h4>
+        <p>PAF-weighted disease burden by sex, age, wealth quintile. Stratified for targeted intervention design.</p>
+      </div>
+      <div class="di-card">
+        <h4>Uncertainty Intervals</h4>
+        <p>Explicit probabilistic uncertainty at every output stage — bootstrap CIs, Monte Carlo envelopes, Bayesian posteriors.</p>
+      </div>
+      <div class="di-card">
+        <h4>Intervention Scenarios</h4>
+        <p>Comparative scenario modeling: status quo vs. nutrition+ vs. integrated — with projected impact and confidence bounds.</p>
+      </div>
+      <div class="di-card">
+        <h4>Resource Allocation Simulations</h4>
+        <p>Cost-effectiveness proxies and coverage optimization under budget constraints — directly actionable for program design.</p>
+      </div>
+      <div class="di-card">
+        <h4>Investment Prioritization</h4>
+        <p>Tornado diagrams and one-way sensitivity analyses identifying highest-leverage parameters for donor decision-making.</p>
+      </div>
+      <div class="di-card">
+        <h4>Subnational Targeting Maps</h4>
+        <p>Small-area estimation producing district-level burden maps — enabling geographic equity analysis and precision resource targeting.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION: PUBLICATIONS                                       -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="container">
+  <div class="section">
+    <h2 class="section-title">Publications &amp; Scientific Contributions</h2>
+
+    <div class="pub-row">
+      <span class="pub-journal lancet">The Lancet</span>
+      <div class="pub-info">
+        <h4>Mortality outcomes for HIV-positive patients in West Africa: a multisite cohort study</h4>
+        <p>IeDEA West Africa Collaboration — 17,000+ patients, 6 countries. Survival analysis, mixed-effects models, competing risks.</p>
+        <div class="pub-year">IeDEA West Africa · Statistical Lead</div>
+      </div>
+    </div>
+
+    <div class="pub-row">
+      <span class="pub-journal plos">PLOS Medicine</span>
+      <div class="pub-info">
+        <h4>Nutritional status and HIV disease progression in sub-Saharan Africa</h4>
+        <p>Population-attributable analysis of wasting and stunting on HIV mortality and treatment failure across IeDEA cohort.</p>
+        <div class="pub-year">IeDEA West Africa · Co-author</div>
+      </div>
+    </div>
+
+    <div class="pub-row">
+      <span class="pub-journal eid">Emerg. Infect. Dis.</span>
+      <div class="pub-info">
+        <h4>Multi-country epidemic forecasting: COVID-19, Ebola, and Mpox in West Africa</h4>
+        <p>SEIR-based forecasting models deployed operationally at US CDC. Bayesian calibration against surveillance data across 10+ countries.</p>
+        <div class="pub-year">US CDC · Senior Scientist (Title 42)</div>
+      </div>
+    </div>
+
+    <div class="pub-row">
+      <span class="pub-journal ijep">Int. J. Epidemiol.</span>
+      <div class="pub-info">
+        <h4>Mali 2012 National DHS: HIV prevalence and associated factors</h4>
+        <p>Statistical lead for the HIV component of the Mali 2012 National Demographic and Health Survey. Complex survey estimation, spatial analysis.</p>
+        <div class="pub-year">Statistical Lead · National DHS</div>
+      </div>
+    </div>
+
+    <div class="pub-row">
+      <span class="pub-journal" style="background:var(--gray-600);">Policy</span>
+      <div class="pub-info">
+        <h4>National Nutrition Policies — Burkina Faso &amp; Mali</h4>
+        <p>Technical lead for evidence synthesis and quantitative modeling underlying national nutrition policy frameworks. Burden estimation, cost-effectiveness analysis, scenario modeling.</p>
+        <div class="pub-year">Government of Burkina Faso · Government of Mali</div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <div class="footer">
